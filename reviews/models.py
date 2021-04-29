@@ -16,4 +16,4 @@ class Review(models.Model):
     score = models.PositiveIntegerField(choices=RATINGS)
 
     def __str__(self):
-        return f"{self.name}'s review on SilverBullet - {self.text} - With the Rating - {self.score}"
+        return f"{self.name}'s review on SilverBullet - {self.comment} - With the Rating - {self.score}"
