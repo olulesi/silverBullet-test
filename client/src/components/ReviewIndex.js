@@ -54,7 +54,7 @@ function ReviewIndex() {
   // STAR SYMBOLS
 
   const inactiveColor = '#ddd'
-  const activeColor = '#f00'
+  const activeColor = '#ffa41d'
   const stars = Array.from({ length: 5 }, () => '★')
 
   return (
@@ -62,9 +62,9 @@ function ReviewIndex() {
       <section className="container">
         <div className="columns">
           <div className="column is-9">
-            <div className="column">
+            <div className="ratings-wrapper">
               <h3 className="title">Average Rating: {avgRating[0]}</h3>
-              <button className="button is-success" onClick={handleRatings}>Sort Reviews by Score</button>
+              <button className="button is-success" onClick={handleRatings}>Top Reviews</button>
             </div>
             <div className="box content">
               {reviews ?

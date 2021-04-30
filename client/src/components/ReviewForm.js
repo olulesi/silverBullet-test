@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom'
 import useForm from '../utils/useForm'
 import axios from 'axios'
 
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
 
 function ReviewForm() {
   const history = useHistory()
@@ -30,77 +33,80 @@ function ReviewForm() {
   // }
 
   const inactiveColor = '#ddd'
-  const activeColor = '#f00'
+  const activeColor = '#ffa41d'
   const stars = Array.from({ length: 5 }, () => '★')
 
   return (
-
     <>
-      <div className="columns">
-        <form className="column is-10 is-offset-1 box" onSubmit={handleSubmit}>
-          <div className="field">
+      <header>
+        <div className="columns container">
+          <form className="column is-10 is-offset-1 box" onSubmit={handleSubmit}>
             <div className="field">
-              <label htmlFor="name" className="label">Name</label>
-              <div className="control">
-                <input
-                  className={`input ${errors.name ? 'is-danger' : ''}`}
-                  placeholder="Name"
-                  name="name"
-                  onChange={handleChange}
-                  value={formdata.name}
-                />
+              <div className="field">
+                <label htmlFor="name" className="label">Name</label>
+                <div className="control">
+                  <input
+                    className={`input ${errors.name ? 'is-danger' : ''}`}
+                    placeholder="Name"
+                    name="name"
+                    onChange={handleChange}
+                    value={formdata.name}
+                  />
+                </div>
+                {errors.name && <p className="help is-danger">{errors.name}</p>}
               </div>
-              {errors.name && <p className="help is-danger">{errors.name}</p>}
-            </div>
-            <div className="field">
-              <label htmlFor="score" className="label">Rating</label>
-              <div className="control" value={formdata.score} name="score">
-                <input
-                  className={`input ${errors.score ? 'is-danger' : ''}`}
-                  placeholder="Rating"
-                  name="score"
-                  type="number"
-                  onChange={handleChange}
-                  value={formdata.score}
-                />
-                {stars.map((s, index) => {
-                  let style = inactiveColor
-                  if (index < formdata.score) {
-                    style = activeColor
-                  }
-                  return (
-                    <span className="star"
-                      aria-hidden="true"
-                      onClick={handleChange}
-                      key={index}
-                      style={{ color: style, width: 24, height: 24, fontSize: 24 }}
-                    >{s}</span>
-                  )
-                })}
-                {formdata.score}
+              <div className="field">
+                <label htmlFor="score" className="label">Rating</label>
+                <div className="control" value={formdata.score} name="score">
+                  <input
+                    className={`input ${errors.score ? 'is-danger' : ''}`}
+                    placeholder="Rating"
+                    name="score"
+                    type="number"
+                    onChange={handleChange}
+                    value={formdata.score}
+                  />
+                  {stars.map((s, index) => {
+                    let style = inactiveColor
+                    if (index < formdata.score) {
+                      style = activeColor
+                    }
+                    return (
+                      <span className="star"
+                        aria-hidden="true"
+                        onClick={handleChange}
+                        key={index}
+                        style={{ color: style, width: 24, height: 24, fontSize: 24 }}
+                      >{s}</span>
+                    )
+                  })}
+                  {formdata.score}
+                </div>
+                {errors.score && <p className="help is-danger">{errors.score}</p>}
               </div>
-              {errors.score && <p className="help is-danger">{errors.score}</p>}
-            </div>
-            <div className="field">
-              <label htmlFor="comment" className="label">Comment</label>
-              <div className="control">
-                <textarea
-                  className={`textarea ${errors.comment ? 'is-danger' : ''}`}
-                  placeholder="Comment...."
-                  name="comment"
-                  onChange={handleChange}
-                  value={formdata.comment}
-                  id="comment"
-                />
+              <div className="field">
+                <label htmlFor="comment" className="label">Comment</label>
+                <div className="control">
+                  <textarea
+                    className={`textarea ${errors.comment ? 'is-danger' : ''}`}
+                    placeholder="Comment...."
+                    name="comment"
+                    onChange={handleChange}
+                    value={formdata.comment}
+                    id="comment"
+                  />
+                </div>
+                {errors.comment && <p className="help is-danger">{errors.comment}</p>}
               </div>
-              {errors.comment && <p className="help is-danger">{errors.comment}</p>}
+              <div className="field">
+                <button type="submit" className="button is-danger is-fullwidth">Submit My Review</button>
+              </div>
             </div>
-            <div className="field">
-              <button type="submit" className="button is-danger is-fullwidth">Submit My Review</button>
-            </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
+
+      </header>
+      
     </>
   )
 

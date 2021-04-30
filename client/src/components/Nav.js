@@ -7,7 +7,7 @@ function Nav() {
   return (
 
     <>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+      <nav className="navbar nav" role="navigation" aria-label="main navigation">
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
