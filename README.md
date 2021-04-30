@@ -38,3 +38,10 @@
 ### Top Reviews
 
 <img src="client/src/styles/images/TopReviews.png">
+
+
+## What I could of Done If I have more Time
+
+* *Ratings*: I would of liked to remove the input for the ratings in the form and just leave the stars so when you click on the stars you wanted it updated the score value. Also I repeated code on the review form and the review list I could of exported it from one file to make my code more readable.
+* *CreatedBy*: I would of liked to have utilised the created by property so that I could of showed the amount of time passed sinced reviewed. Also created a sort option to view most recent reviews on top.
+* *Animations*: I would of loved to have animations for all pages and features especially for when the page loads.
