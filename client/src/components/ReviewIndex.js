@@ -10,11 +10,6 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 function ReviewIndex() {
 
   const [reviews, setReviews] = React.useState(null)
-  
-
-  
-  const avgRating = []
-  let totalRatings = 0
 
   React.useEffect(() => {
     const getData = async () => {
@@ -33,9 +28,10 @@ function ReviewIndex() {
 
   // SORT REVIEWS BY RATING
 
+  const avgRating = []
+  let totalRatings = 0
   // eslint-disable-next-line no-unused-vars
   const [sortedReviews, setSortedReviews] = React.useState(null)
-
 
   if (reviews) {
     reviews.map(review => (
@@ -60,8 +56,6 @@ function ReviewIndex() {
   const inactiveColor = '#ddd'
   const activeColor = '#f00'
   const stars = Array.from({ length: 5 }, () => '★')
-
-  console.log(stars)
 
   return (
     <>

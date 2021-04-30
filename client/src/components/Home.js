@@ -4,6 +4,12 @@ import ReviewForm from './ReviewForm'
 
 function Home() {
 
+  const [showForm, setShowForm] = React.useState(false)
+
+  const handleClick = () => {
+    setShowForm(!showForm)
+  }
+
   return (
     <>
       <section className="hero">
@@ -16,7 +22,14 @@ function Home() {
               <h2 className="subtitle has-text-centered">
                 Write a Review about the company that delivers he world’s leading products and services
               </h2>
-              <ReviewForm />
+              {!showForm && (
+                <button className="button is-link is-rounded" onClick={handleClick}>
+                  Give a Review
+                </button>
+              )}
+              {showForm && (
+                <ReviewForm />
+              )}
             </div>
           </div>
         </div>

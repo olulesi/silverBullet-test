@@ -25,6 +25,14 @@ function ReviewForm() {
     }
   }
 
+  // const handleScoreChange = (value) => {
+  //   setRating(value)
+  // }
+
+  const inactiveColor = '#ddd'
+  const activeColor = '#f00'
+  const stars = Array.from({ length: 5 }, () => '★')
+
   return (
 
     <>
@@ -46,7 +54,7 @@ function ReviewForm() {
             </div>
             <div className="field">
               <label htmlFor="score" className="label">Rating</label>
-              <div className="control">
+              <div className="control" value={formdata.score} name="score">
                 <input
                   className={`input ${errors.score ? 'is-danger' : ''}`}
                   placeholder="Rating"
@@ -55,6 +63,21 @@ function ReviewForm() {
                   onChange={handleChange}
                   value={formdata.score}
                 />
+                {stars.map((s, index) => {
+                  let style = inactiveColor
+                  if (index < formdata.score) {
+                    style = activeColor
+                  }
+                  return (
+                    <span className="star"
+                      aria-hidden="true"
+                      onClick={handleChange}
+                      key={index}
+                      style={{ color: style, width: 24, height: 24, fontSize: 24 }}
+                    >{s}</span>
+                  )
+                })}
+                {formdata.score}
               </div>
               {errors.score && <p className="help is-danger">{errors.score}</p>}
             </div>
