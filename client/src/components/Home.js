@@ -6,7 +6,7 @@ function Home() {
 
   return (
     <>
-      <section className="hero is-fullheight">
+      <section className="hero">
         <div className="hero-body">
           <div className="container">
             <div className="column is-6 is-offset-3">
