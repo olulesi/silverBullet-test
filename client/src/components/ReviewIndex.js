@@ -10,8 +10,9 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 function ReviewIndex() {
 
   const [reviews, setReviews] = React.useState(null)
-  // eslint-disable-next-line no-unused-vars
-  const [sortedReviews, setSortedReviews] = React.useState(null)
+  
+
+  
   const avgRating = []
   let totalRatings = 0
 
@@ -29,6 +30,11 @@ function ReviewIndex() {
   }, [])
 
 
+
+  // SORT REVIEWS BY RATING
+
+  // eslint-disable-next-line no-unused-vars
+  const [sortedReviews, setSortedReviews] = React.useState(null)
 
 
   if (reviews) {
@@ -48,7 +54,12 @@ function ReviewIndex() {
     setSortedReviews(sortRatings)
   }
 
-  const stars = Array.from({ length: 5 }, () => '☆')
+
+  // STAR SYMBOLS
+
+  const inactiveColor = '#ddd'
+  const activeColor = '#f00'
+  const stars = Array.from({ length: 5 }, () => '★')
 
   console.log(stars)
 
@@ -77,15 +88,27 @@ function ReviewIndex() {
                         </div>
                       </div>
                       <div className="media-left">
-                        <div value={review.score}> 
-                        
+                        <div value={review.score}>
+                          {stars.map((s, index) => {
+                            let style = inactiveColor
+                            if (index < review.score) {
+                              style = activeColor
+                            }
+                            return (
+                              <span className="star"
+                                key={index}
+                                style={{ color: style, width: 24, height: 24, fontSize: 24 }}
+                              >{s}</span>
+                            )
+                          })}
+                          {review.score}
                         </div>
                       </div>
                       <div className="content">
                         {review.comment}
                       </div>
                     </article>
-                    
+
                   </>
                 ))
                 :
